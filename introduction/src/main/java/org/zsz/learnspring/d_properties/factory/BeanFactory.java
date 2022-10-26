@@ -9,13 +9,13 @@ import java.util.Properties;
  */
 public class BeanFactory {
 
-  private static Properties properties;
+  private static Properties PROPERTIES;
 
   // 使用静态代码块初始化properties，加载factory_d.properties文件
   static {
-    properties = new Properties();
+    PROPERTIES = new Properties();
     try {
-      properties.load(BeanFactory.class.getClassLoader().getResourceAsStream("d_properties/factory.properties"));
+      PROPERTIES.load(BeanFactory.class.getClassLoader().getResourceAsStream("d_properties/factory.properties"));
     } catch (IOException e) {
       throw new ExceptionInInitializerError("BeanFactory initialize error, cause: " + e.getMessage());
     }
@@ -24,7 +24,7 @@ public class BeanFactory {
   public static Object getBean(String beanName) {
     try {
       // 从properties文件中读取指定name对应类的全限定名，并反射实例化
-      Class<?> klass = Class.forName(properties.getProperty(beanName));
+      Class<?> klass = Class.forName(PROPERTIES.getProperty(beanName));
       return klass.newInstance();
     } catch (ClassNotFoundException e) {
       throw new RuntimeException("BeanFactory have not [" + beanName + "] bean!", e);
