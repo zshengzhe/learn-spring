@@ -13,8 +13,8 @@ import org.zsz.learnspring.e_cachedfactory.service.DemoService;
  * @author Zhang Shengzhe
  * @create 2022-10-26 14:41
  */
-@WebServlet(urlPatterns = "/hello-servlet4")
-public class HelloServlet4 extends HttpServlet {
+@WebServlet(urlPatterns = "/hello-servlet5")
+public class HelloServlet5 extends HttpServlet {
 
   private final DemoService service = (DemoService) BeanFactory.getBean("demoService");
 
