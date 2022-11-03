@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean class="org.zsz.learnspring.basic_di.g_complexfield.bean.Person">
+    <property name="names">
+      <array>
+        <value>linus</value>
+        <value>zhangsan</value>
+      </array>
+    </property>
+    <property name="tels">
+      <list>
+        <value>110</value>
+        <value>119</value>
+      </list>
+    </property>
+    <property name="cats">
+      <set>
+        <bean class="org.zsz.learnspring.basic_di.g_complexfield.bean.Cat"/>
+        <ref bean="mimi"/>
+      </set>
+    </property>
+    <property name="events">
+      <map>
+        <entry key="8.00" value="起床"/>
+        <entry key="9.00" value="mimi"/>
+        <entry key="14:00">
+          <bean class="org.zsz.learnspring.basic_di.g_complexfield.bean.Cat"/>
+        </entry>
+        <entry key="18:00" value="睡觉"/>
+      </map>
+    </property>
+    <property name="props">
+      <props>
+        <prop key="sex">male</prop>
+        <prop key="age">18</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="mimi" class="org.zsz.learnspring.basic_di.g_complexfield.bean.Cat"/>
+</beans>
