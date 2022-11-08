@@ -15,17 +15,17 @@ import org.zsz.learnspring.basic_di.c_value_spel.bean.White;
 public class InjectValueXmlApplication {
 
   public static void main(String[] args) throws Exception {
-    ApplicationContext ctx = new ClassPathXmlApplicationContext("basic_di/value/inject-value.xml");
-    Black black = ctx.getBean(Black.class);
+    ApplicationContext context = new ClassPathXmlApplicationContext("basic_di/value/inject-value.xml");
+    Black black = context.getBean(Black.class);
     log.info("simple value : " + black);
 
-    Red red = ctx.getBean(Red.class);
+    Red red = context.getBean(Red.class);
     log.info("properties value : " + red);
 
-    Green green = ctx.getBean(Green.class);
+    Green green = context.getBean(Green.class);
     log.info("use spel bean property : " + green);
 
-    White white = ctx.getBean(White.class);
+    White white = context.getBean(White.class);
     log.info("use spel methods : " + white);
   }
 
